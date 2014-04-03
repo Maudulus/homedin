@@ -4,4 +4,5 @@ class House < ActiveRecord::Base
   has_many :emails
   has_many :ratings
 
+  validates :price, numericality: true
 end

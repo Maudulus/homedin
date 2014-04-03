@@ -20,6 +20,8 @@ describe User do
       it {should_not have_valid(:password).when(*blank)}
       it {should_not have_valid(:password).when('1234')}
 
+      it {should have_many :houses}
+
       it "is valid when given valid attributes" do
         expect(user).to be_valid
       end
