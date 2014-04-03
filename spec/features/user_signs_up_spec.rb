@@ -14,7 +14,7 @@ feature 'user signs up ', %q{
       join_form_filler(user)
       click_on 'Sign up'
 
-      expect(User.count).to eq(1)
+      expect(User.count).to eq(count + 1)
       expect(page).to have_content("Signed in as #{user.username}")
     end
 

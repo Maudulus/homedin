@@ -42,4 +42,5 @@ RSpec.configure do |config|
 
   config.include SignInFastHelper
   config.include SignUpFastHelper
+  config.include HouseNewHelper
 end

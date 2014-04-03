@@ -1,0 +1,9 @@
+<%= simple_form_for @house do |f| %>
+  <%= f.input :price  %>
+  <%= f.input :town  %>
+  <%= f.input :description  %>
+  <%= f.input :bedrooms  %>
+  <%= f.input :bathrooms  %>
+  <%= f.input :url, label: "URL"  %>
+  <%= f.button :submit, "Add House"  %>
+<% end %>

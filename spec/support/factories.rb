@@ -11,6 +11,7 @@ FactoryGirl.define do
     description 'Beautiful mansion filled with beautiful things'
     bedrooms 5
     bathrooms 5
+    url 'http://www.zillow.com/b/96-Kent-St-Brookline-MA-02445/42.334491,-71.114776_ll/'
   end
 end
 
