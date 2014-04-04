@@ -4,10 +4,16 @@ class HousesController < ApplicationController
     @house = House.new
   end
 
+  def foobar
+    @house = House.find(params[:id])
+
+    redirect_to house_path(@house)
+  end
+
   def create
-    @house = House.new(house_params)
+    @house = House.create(house_params)
       if @house.save
-        redirect_to new_house_path, notice: 'House Added'
+        redirect_to houses_path, notice: 'House Added'
       else
         redirect_to new_house_path, notice: "Error: house was not added"
       end

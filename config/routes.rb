@@ -1,5 +1,5 @@
 HomedIn::Application.routes.draw do
-  resources :houses, only: [:new, :create]
+  resources :houses
 
   devise_for :users
   root to: "home#index"

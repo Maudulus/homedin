@@ -48,6 +48,7 @@ group :development, :test do
     gem 'shoulda'
 end
 
+gem 'foundation-rails'
 
 
 
