@@ -5,4 +5,5 @@ class House < ActiveRecord::Base
   has_many :ratings
 
   validates :price, numericality: true
+  mount_uploader :image, ImageUploader
 end

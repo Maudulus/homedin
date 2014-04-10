@@ -1,0 +1,51 @@
+<h1>House Number <%= @house.id %> </h1>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Home</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="/houses">Houses</a>
+        <ul class="dropdown">
+          <li><a href="/houses/new">New</a></li>
+          <li><a href="/houses/edit">Edit</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<br>
+
+<div>
+    <%= image_tag @house.image_url(:thumb) if @house.image? %>
+</div>
+<br>
+<tr>
+    <th>Price</th>
+    <th>Address</th>
+    <th>Town</th>
+    <th>Description</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>URL</th>
+</tr>
+<tr>
+    <td><%= @house.price %></td>
+    <td><%= @house.address %></td>
+    <td><%= @house.town %></td>
+    <td><%= @house.description %></td>
+    <td><%= @house.bedrooms %></td>
+    <td><%= @house.bathrooms %></td>
+    <td><a href=<%= @house.url %>><%= @house.url %> </a> </td>
+    <td><%= link_to 'Destroy', @house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit', edit_house_path(@house) %></td>
+</tr>
+</table>
+

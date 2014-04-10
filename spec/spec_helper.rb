@@ -40,7 +40,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.include SignInFastHelper
-  config.include SignUpFastHelper
-  config.include HouseNewHelper
+  config.include FormHelper
 end

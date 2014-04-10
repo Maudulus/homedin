@@ -11,7 +11,6 @@ feature 'user adds house', %q{
       house = FactoryGirl.build(:house)
       visit new_house_path
       house_new_helper(house)
-      save_and_open_page
       click_on 'Add House'
 
       expect(House.count).to eq(count + 1)

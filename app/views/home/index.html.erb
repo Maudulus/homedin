@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <h2>Home</h2>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.username %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-</div>
 
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
@@ -29,3 +21,14 @@
     </ul>
   </section>
 </nav>
+<br>
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.username %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+  <% end %>
+</div>
+

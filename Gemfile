@@ -38,6 +38,7 @@ group :test, :development do
   gem 'launchy'
   gem 'valid_attribute'
   gem 'factory_girl'
+  gem 'pry'
 end
 
 gem 'devise'
@@ -46,11 +47,15 @@ gem 'simple_form'
 group :development, :test do
     gem 'railroady'
     gem 'shoulda'
+    gem 'dotenv-rails'
 end
 
 gem 'foundation-rails'
 
-
+#gem "rmagick"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'omniauth-twitter'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
