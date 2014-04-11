@@ -12,10 +12,9 @@
   <section class="top-bar-section">
     <ul class="left">
       <li class="has-dropdown">
-        <a href="/houses">Houses</a>
+        <a href="/houses">My Houses</a>
         <ul class="dropdown">
           <li><a href="/houses/new">New</a></li>
-          <li><a href="/houses/edit">Edit</a></li>
         </ul>
       </li>
     </ul>
@@ -31,4 +30,30 @@
     <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
   <% end %>
 </div>
+
+<table>
+  <tr>
+    <th>Price</th>
+    <th>Address</th>
+    <th>Town</th>
+    <th>Description</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>URL</th>
+
+  </tr>
+    <% @houses.each do |house|%>
+  <tr>
+    <td><%= house.price %></td>
+    <td><%= house.address %></td>
+    <td><%= house.town %></td>
+    <td><%= house.description %></td>
+    <td><%= house.bedrooms %></td>
+    <td><%= house.bathrooms %></td>
+    <td><a href=<%= house.url %>><%= house.url %> </a> </td>
+    <td><%= link_to 'SHOW', house_path(house) %></td>
+</tr>
+  <% end %>
+</table>
+
 

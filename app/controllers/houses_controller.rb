@@ -1,11 +1,16 @@
 class HousesController < ApplicationController
-
+  before_filter :authenticate_user!,
+    :only => [:destroy, :create, :edit, :new]
   def new
     @house = House.new
   end
 
   def index
-    @houses = House.all
+    if user_signed_in?
+      @houses = current_user.houses
+    else
+      @houses = House.all
+    end
   end
 
   def foobar
@@ -20,10 +25,11 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    @rating = Rating.find_by(house: @house, user: current_user) || Rating.new
   end
 
   def create
-    @house = House.create(house_params)
+    @house = current_user.houses.build(house_params)
       if @house.save
         redirect_to houses_path, notice: 'House Added'
       else
@@ -49,6 +55,10 @@ class HousesController < ApplicationController
     @house.delete
     redirect_to houses_path
   end
+
+  # def set_user
+  #   @user = current_user
+  # end
 
    protected
   def house_params
