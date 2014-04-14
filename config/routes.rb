@@ -1,7 +1,7 @@
 HomedIn::Application.routes.draw do
-  resources :houses
-  resources :ratings, only: :update
-
+  resources :houses do
+    resources :ratings, only: [:update, :create]
+  end
 
   devise_for :users,
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}

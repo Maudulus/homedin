@@ -55,7 +55,12 @@ gem 'foundation-rails'
 #gem "rmagick"
 gem 'carrierwave'
 gem 'mini_magick'
+
 gem 'omniauth-twitter'
+
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
