@@ -63,4 +63,17 @@
   <% end %>
 </table>
 
+<br>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<h3>Town to Price Comparison</h3>
+<%= bar_chart @houses.group(:town).average(:price) %>
+<%= geo_chart @houses.group(:town).sum(:price) %>
+<h3>Bedroom(s) to Price Comparison</h3>
+<%= pie_chart @houses.group(:bedrooms).average(:price) %>
+<%= column_chart @houses.group(:bedrooms).average(:price) %>
+
+<br>
+<h3>Bathroom(s) to Price Comparison</h3>
+<%= pie_chart @houses.group(:bathrooms).average(:price) %>
+<%= column_chart @houses.group(:bathrooms).average(:price) %>
 
