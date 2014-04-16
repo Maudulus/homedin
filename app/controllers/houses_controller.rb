@@ -26,6 +26,7 @@ class HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
     @rating = Rating.find_by(house: @house, user: current_user) || Rating.new
+    @textmessage = Textmessage.find_by(house: @house, user: current_user) || Textmessage.new
   end
 
   def create
@@ -33,7 +34,8 @@ class HousesController < ApplicationController
       if @house.save
         redirect_to houses_path, notice: 'House Added'
       else
-        redirect_to new_house_path, notice: "Error: house was not added"
+        flash.now[:error] = 'House Not Added'
+        render :new
       end
   end
 
@@ -62,7 +64,7 @@ class HousesController < ApplicationController
 
    protected
   def house_params
-    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :rating, :remote_image_url, :image)
+    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :rating, :remote_image_url, :image, :message)
   end
 end
 

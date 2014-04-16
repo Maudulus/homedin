@@ -5,7 +5,9 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to houses_path, notice: 'Rating Added'
     else
-      redirect_to house_path(@rating.house), notice: "Error: rating was not added"
+      # redirect_to house_path(@rating.house), notice: "Error: rating was not added"
+      flash.now[:error] = 'Rating Not Added'
+      render :show
     end
   end
 

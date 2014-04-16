@@ -209,6 +209,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mini_magick
+  nokogiri
   omniauth-twitter
   pg
   pry
