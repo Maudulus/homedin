@@ -6,14 +6,57 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Homed-In" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">Home</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
 
-    <%= yield %>
+        <section class="top-bar-section">
+
+          <ul class="right">
+            <% if user_signed_in? %>
+              <li class="has-dropdown">
+                <%= link_to current_user.username %>
+                <ul class="dropdown">
+                  <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+
+          <ul class="left">
+            <li class="has-dropdown">
+              <a href="/houses">My Houses</a>
+              <ul class="dropdown">
+                <li><a href="/houses/new">New</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

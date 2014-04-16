@@ -1,44 +1,5 @@
 <!DOCTYPE html>
 <h2>Home</h2>
-
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/">Home</a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="left">
-      <% if user_signed_in? %>
-        <li><%= "Signed in as #{current_user.username}" %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <% end %>
-    </ul>
-    <ul class="left">
-      <li class="has-dropdown">
-        <a href="/houses">My Houses</a>
-        <ul class="dropdown">
-          <li><a href="/houses/new">New</a></li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-</nav>
-<br>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.username %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
-  <% end %>
-</div>
-
 <table>
   <tr>
     <th>Price</th>
@@ -66,17 +27,32 @@
 
 <br>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<h3>Town to Price Comparison</h3>
-<%= bar_chart House.group(:town).average(:price) %>
-<%= geo_chart House.group(:town).sum(:price) %>
-<h3>Bedroom(s) to Price Comparison</h3>
-<%= pie_chart House.group(:bedrooms).average(:price) %>
-<%= column_chart House.group(:bedrooms).average(:price) %>
-
+<div class="row">
+  <h3 align="center" >Bedroom(s) to Price Comparison</h3>
+  <div class="large-6 columns">
+    <%= pie_chart House.group(:bedrooms).average(:price) %>
+  </div>
+  <div class="large-6 columns">
+    <%= column_chart House.group(:bedrooms).average(:price) %>
+  </div>
+  </div>
+</div>
 <br>
-<h3>Bathroom(s) to Price Comparison</h3>
-<%= pie_chart House.group(:bathrooms).average(:price) %>
-<%= column_chart House.group(:bathrooms).average(:price) %>
 
-
-
+<div class="row">
+  <h3 align="center" >Bathroom(s) to Price Comparison</h3>
+  <div class="large-6 columns">
+    <%= pie_chart House.group(:bathrooms).average(:price) %>
+  </div>
+  <div class="large-6 columns">
+    <%= column_chart House.group(:bathrooms).average(:price) %>
+  </div>
+</div>
+<br>
+<br>
+<div class="row">
+  <h3 align="center" >Town to Price Comparison</h3>
+  <%= bar_chart House.group(:town).average(:price) %>
+  <%= geo_chart House.group(:town).sum(:price) %>
+</div>
+<br>

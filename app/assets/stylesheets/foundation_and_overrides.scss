@@ -40,7 +40,7 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+$body-bg: #F7FFF3;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -55,9 +55,9 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #72A7FF;
 // $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
+$alert-color: #CC5351;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
@@ -111,14 +111,14 @@
 // $cursor-text-value: text;
 
 //
-// TYPOGRAPHY
+// TYPOGRAPHYhttp://localhost:3000/houses#
 //
 
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
-// $header-font-weight: normal;
+$header-font-family: 'Josefin Slab', serif;
+$header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
 // $header-line-height: 1.4;
@@ -1039,7 +1039,7 @@
 // $table-even-row-bg: #f9f9f9  ;
 
 // These control the table cell border style
-// $table-border-style: solid;
+$table-border-style: none;
 // $table-border-size: 1px;
 // $table-border-color: #ddd;
 
@@ -1130,7 +1130,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #57C27A;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin

@@ -10,12 +10,9 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
 
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.username = auth.info.nickname
-    end
+  def twilio_client
+    Twilio::REST::Client.new self.account_sid,
+                             self.auth_token
   end
 
   # def self.new_with_session(params, session)
