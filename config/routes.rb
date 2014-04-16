@@ -1,6 +1,7 @@
 HomedIn::Application.routes.draw do
   resources :houses do
     resources :ratings, only: [:update, :create]
+    resources :textmessages, only: [:update, :create]
   end
 
   devise_for :users,

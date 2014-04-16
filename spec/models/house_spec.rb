@@ -13,6 +13,7 @@ describe House do
     it {should have_many :ratings}
     it {should have_many :emails}
     it {should have_many :comments}
+    it {should have_many :textmessages}
 
     it { should have_valid(:price).when (30000)}
     it {should_not have_valid(:price).when ('thirty-thousand')}

@@ -7,6 +7,11 @@ feature 'user adds house', %q{
   } do
 
     scenario 'user adds house with valid attributes' do
+      user = FactoryGirl.create(:user)
+      visit root_path
+      click_on 'Sign in'
+      form_filler(user)
+      click_on 'Sign in'
       count = House.count
       house = FactoryGirl.build(:house)
       visit new_house_path
