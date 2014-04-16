@@ -3,6 +3,7 @@ class House < ActiveRecord::Base
   has_many :comments
   has_many :emails
   has_many :ratings
+  has_many :textmessages
 
   validates :price, numericality: true
   mount_uploader :image, ImageUploader
