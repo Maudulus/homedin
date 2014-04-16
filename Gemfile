@@ -66,6 +66,10 @@ gem 'sidekiq'
 gem 'twilio-ruby'
 gem 'redis'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 
 
 # Use ActiveModel has_secure_password
