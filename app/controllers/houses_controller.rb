@@ -9,7 +9,6 @@ class HousesController < ApplicationController
     if user_signed_in?
       @houses = current_user.houses
     else
-      puts "You have not added any houses."
     end
   end
 

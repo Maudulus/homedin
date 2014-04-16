@@ -6,7 +6,7 @@
       </div>
     <% end %>
 <br>
-    <% if !@houses.empty? && user_signed_in?  %>
+    <% if user_signed_in? && (@houses.empty? == false)    %>
 <table>
   <tr>
     <th>Price</th>
