@@ -1,11 +1,10 @@
 HomedIn::Application.routes.draw do
   resources :houses do
     resources :ratings, only: [:update, :create]
-    resources :textmessages, only: [:update, :create]
+    resources :textmessages
   end
 
-  devise_for :users,
-              controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

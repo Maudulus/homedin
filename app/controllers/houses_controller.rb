@@ -9,7 +9,7 @@ class HousesController < ApplicationController
     if user_signed_in?
       @houses = current_user.houses
     else
-      @houses = House.all
+      puts "You have not added any houses."
     end
   end
 
@@ -52,6 +52,14 @@ class HousesController < ApplicationController
     end
   end
 
+  def send_text_messages
+    # TODO error handling, etc.
+    MessageWorker.perform_async(@contact_group.id, params[:message])
+    flash[:notice] = "#{@contact_group.contacts.count} text messages queued " +
+                     "to be sent."
+    redirect_to contact_group_path(@contact_group)
+  end
+
   def destroy
     @house = House.find(params[:id])
     @house.delete
@@ -64,7 +72,7 @@ class HousesController < ApplicationController
 
    protected
   def house_params
-    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :rating, :remote_image_url, :image, :message)
+    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :rating, :remote_image_url, :image, :textmessage )
   end
 end
 
