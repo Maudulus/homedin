@@ -85,12 +85,15 @@
  <%= f.button :submit  %>
 <% end %>
 <br>
+
+<div id="datetime_picker">
 <h3>Add a Show Time alert</h3>
-<%= simple_form_for [@house, @textmessage] do |f| %>
+<%= simple_form_for [@house, @textmessage], method: :create do |f| %>
   <%= f.input :date_time, :as => :datetime %>
   <%= f.input :phone_number, :as => :tel %>
   <%= f.button :submit  %>
 <% end %>
+</div>
 
 
 
