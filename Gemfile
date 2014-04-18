@@ -32,23 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test, :development do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'valid_attribute'
-  gem 'factory_girl'
-  gem 'pry'
-end
-
 gem 'devise'
 gem 'simple_form'
-
-group :development, :test do
-    gem 'railroady'
-    gem 'shoulda'
-    gem 'dotenv-rails'
-end
 
 gem 'foundation-rails'
 
@@ -66,11 +51,28 @@ gem 'sidekiq'
 gem 'twilio-ruby'
 gem 'redis'
 
+gem 'whenever', :require => false
+gem 'slim'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'valid_attribute'
+  gem 'factory_girl'
+  gem 'pry'
+  gem 'railroady'
+  gem 'shoulda'
+  gem 'dotenv-rails'
+end
+
+group :development do
+  gem 'sinatra', '>= 1.3.0', :require => nil
+end
+
 group :production do
   gem 'rails_12factor'
 end
-
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
