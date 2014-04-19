@@ -15,7 +15,7 @@ class RatingsController < ApplicationController
     @rating = Rating.find(params[:id])
     respond_to do |format|
       if @rating.update(rating_params)
-        format.html { redirect_to houses_path, notice: 'House was successfully updated.' }
+        format.html { redirect_to houses_path, notice: 'House Rating was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

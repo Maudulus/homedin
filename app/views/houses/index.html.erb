@@ -28,11 +28,11 @@
     <td><%= house.bedrooms %></td>
     <td><%= house.bathrooms %></td>
     <td><a href=<%= house.url %>><%= house.url %> </a> </td>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && house.user_id == current_user.id %>
       <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
     <td><%= link_to 'Edit', edit_house_path(house) %></td>
     <td><%= link_to 'SHOW', house_path(house) %></td>
+        <% end %>
 </tr>
   <% end %>
 </table>
