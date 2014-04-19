@@ -54,6 +54,8 @@ gem 'redis'
 gem 'whenever', :require => false
 gem 'slim'
 
+gem 'unicorn'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
@@ -72,6 +74,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
+
 end
 
 # Use ActiveModel has_secure_password
