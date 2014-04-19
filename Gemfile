@@ -69,7 +69,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'sinatra', '>= 1.3.0', :require => nil
+  #gem 'sinatra', '>= 1.3.0', :require => nil
 end
 
 group :production do
@@ -77,6 +77,8 @@ group :production do
   gem 'newrelic_rpm'
 
 end
+gem 'sinatra', require: false
+gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
