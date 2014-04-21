@@ -75,10 +75,13 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
-
 end
+
 gem 'sinatra', require: false
 gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
+
+gem 'httparty'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
