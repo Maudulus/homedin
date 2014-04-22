@@ -7,8 +7,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
   # storage :fog
+
+  if Rails.env.test?
+    enable_processing = false
+  end
+
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -16,8 +25,25 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+
   version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
+
+  version :small do
     process :resize_to_limit => [200, 200]
+  end
+
+  version :medium do
+    process :resize_to_fill => [400, 400]
+  end
+
+  version :large do
+    process :resize_to_fill => [600, 600]
+  end
+
+  def extension_white_list
+    %w(jpg jpeg gif png bmp)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
