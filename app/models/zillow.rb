@@ -2,6 +2,7 @@ class Zillow
   include HTTParty
   BASE_URI = 'http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id='
   DESCRIPTION_URI = 'http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id='
+
   attr_reader :price, :street_address, :zip, :city, :state, :bedrooms, :bathrooms, :url, :zpid, :address, :citystatezip, :description, :image_url
 
   def initialize(address, citystatezip)
@@ -21,6 +22,7 @@ class Zillow
     @zpid = @response["searchresults"]["response"]["results"]["result"]["zpid"]
 
     @description_image_response = description_image
+    visit @description_image_response
     @description = @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"]
     @image_url = @description_image_response["updatedPropertyDetails"]["response"]["images"]["image"]["url"][0]
   end
