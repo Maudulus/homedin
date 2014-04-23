@@ -12,5 +12,5 @@ This application incorporates a number of gems/apis, notably:
 Testing Notes:
 # redis is already installed
 you have to run the following two lines in order to test text-messages locally:
-redis-server /usr/local/etc/redis.conf
-bundle exec sidekiq
+ + redis-server /usr/local/etc/redis.conf
+ + bundle exec sidekiq
