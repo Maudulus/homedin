@@ -8,6 +8,7 @@
 /.bundle
 .env
 .secret
+/public/uploads/house/image/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
