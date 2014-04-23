@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_filter :authenticate_user!,
-    :only => [:destroy, :create, :edit, :new]
+    :only => [:destroy, :create, :edit, :new, :search]
   def new
     @house = House.new
   end
@@ -11,6 +11,42 @@ class HousesController < ApplicationController
     else
     end
   end
+
+  def search
+    api_results = Zillow.new(params[:address], params[:citystatezip])
+    @house = current_user.houses.build(price: api_results.price, town: api_results.city, bedrooms: api_results.bedrooms, bathrooms: api_results.bathrooms, url: api_results.url, address: api_results.street_address, remote_image_url: api_results.image_url, description: api_results.description  )
+    if @house.save
+      redirect_to houses_path, notice: 'House Added'
+    else
+      flash.now[:error] = 'House Not Added'
+      render :new
+    end
+  end
+
+
+#     @price = (@response["searchresults"]["response"]["results"]["result"]["zestimate"]["amount"]["__content__"]).to_i
+#     @street_address = @response["searchresults"]["response"]["results"]["result"]["address"]["street"]
+#     @zip = @response["searchresults"]["response"]["results"]["result"]["address"]["zipcode"]
+#     @city = @response["searchresults"]["response"]["results"]["result"]["address"]["city"]
+#     @state = @response["searchresults"]["response"]["results"]["result"]["address"]["state"]
+#     @bedrooms = @response["searchresults"]["response"]["results"]["result"]["bedrooms"]
+#     @bathrooms = @response["searchresults"]["response"]["results"]["result"]["bathrooms"]
+#     @url
+
+  #  create_table "houses", force: true do |t|
+  #   t.integer  "price"
+  #   t.string   "town"
+  #   t.text     "description"
+  #   t.integer  "bedrooms"
+  #   t.integer  "bathrooms"
+  #   t.datetime "created_at"
+  #   t.datetime "updated_at"
+  #   t.integer  "user_id"
+  #   t.string   "url"
+  #   t.string   "address"
+  #   t.integer  "rating"
+  #   t.string   "image"
+  # end
 
   def foobar
     @house = House.find(params[:id])

@@ -2,7 +2,8 @@
 <h2>Home</h2>
 <table>
   <tr>
-    <th>Price</th>
+    <th>Picture</th>
+    <th>Zestimate®</th>
     <th>Address</th>
     <th>Town</th>
     <th>Description</th>
@@ -13,6 +14,7 @@
   </tr>
     <% @houses.each do |house|%>
   <tr>
+    <td><%= image_tag house.image_url(:thumb) %></td>
     <td><%= house.price %></td>
     <td><%= house.address %></td>
     <td><%= house.town %></td>
@@ -26,6 +28,7 @@
   </tr>
     <% end %>
 </table>
+  <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
 
 <br>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>

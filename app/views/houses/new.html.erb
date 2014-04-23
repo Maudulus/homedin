@@ -6,15 +6,30 @@
       </div>
     <% end %>
 <br>
+<h3>Enter an Address</h3>
+
+  <%= form_tag("/search", method: "post") do %>
+    <%= label_tag(:address, "Address:" ) %>
+    <%= text_field_tag(:address, nil, placeholder: '100 Brooklyn Ave Unit 3') %>
+    <%= label_tag(:citystatezip, "City and State OR ZIP:") %>
+    <%= text_field_tag(:citystatezip, nil, placeholder: 'New York, NY  OR  02119') %>
+    <%= submit_tag("Enter Address") %>
+    <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
+  <% end %>
+
+
+
+<h3>      or        </h3>
 <br>
-<%= simple_form_for @house do |f| %>
-  <%= f.input :price  %>
-  <%= f.input :town  %>
-  <%= f.input :description  %>
-  <%= f.input :bedrooms  %>
-  <%= f.input :bathrooms  %>
-  <%= f.input :url, label: "URL"  %>
-  <%= f.input :remote_image_url %>
-  <%= f.file_field :image %>
-  <%= f.button :submit, "Add House"  %>
-<% end %>
+
+  <%= simple_form_for @house do |f| %>
+    <%= f.input :price  %>
+    <%= f.input :town  %>
+    <%= f.input :description  %>
+    <%= f.input :bedrooms  %>
+    <%= f.input :bathrooms  %>
+    <%= f.input :url, label: "URL"  %>
+    <%= f.input :remote_image_url %>
+    <%= f.file_field :image %>
+    <%= f.button :submit, "Add House"  %>
+  <% end %>
