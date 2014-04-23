@@ -22,11 +22,11 @@ class Zillow
     @zpid = @response["searchresults"]["response"]["results"]["result"]["zpid"]
 
     @description_image_response = description_image
-    if !@description_image_response["updatedPropertyDetails"]["message"]["text"].include?("Error")
+    if !@description_image_response["updatedPropertyDetails"]["message"]["text"].include?("Error") && ((@description_image_response["updatedPropertyDetails"]["response"]["images"] != nil) && ( @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"] != nil) )
       @description = @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"]
       @image_url = @description_image_response["updatedPropertyDetails"]["response"]["images"]["image"]["url"][0]
     else
-      @description = "SOmething"
+      @description = "Description not currently available"
       @image_url = "http://upload.wikimedia.org/wikipedia/commons/2/22/Belton_House_2006_Giano.jpg"
     end
 
