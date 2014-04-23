@@ -23,31 +23,6 @@ class HousesController < ApplicationController
     end
   end
 
-
-#     @price = (@response["searchresults"]["response"]["results"]["result"]["zestimate"]["amount"]["__content__"]).to_i
-#     @street_address = @response["searchresults"]["response"]["results"]["result"]["address"]["street"]
-#     @zip = @response["searchresults"]["response"]["results"]["result"]["address"]["zipcode"]
-#     @city = @response["searchresults"]["response"]["results"]["result"]["address"]["city"]
-#     @state = @response["searchresults"]["response"]["results"]["result"]["address"]["state"]
-#     @bedrooms = @response["searchresults"]["response"]["results"]["result"]["bedrooms"]
-#     @bathrooms = @response["searchresults"]["response"]["results"]["result"]["bathrooms"]
-#     @url
-
-  #  create_table "houses", force: true do |t|
-  #   t.integer  "price"
-  #   t.string   "town"
-  #   t.text     "description"
-  #   t.integer  "bedrooms"
-  #   t.integer  "bathrooms"
-  #   t.datetime "created_at"
-  #   t.datetime "updated_at"
-  #   t.integer  "user_id"
-  #   t.string   "url"
-  #   t.string   "address"
-  #   t.integer  "rating"
-  #   t.string   "image"
-  # end
-
   def foobar
     @house = House.find(params[:id])
 
