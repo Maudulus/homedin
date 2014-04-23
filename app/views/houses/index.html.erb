@@ -9,6 +9,7 @@
     <% if user_signed_in? && (@houses.empty? == false)    %>
 <table>
   <tr>
+    <th>Picture</th>
     <th>Price</th>
     <th>Address</th>
     <th>Town</th>
@@ -21,6 +22,7 @@
   </tr>
     <% @houses.each do |house|%>
   <tr>
+    <td><%= image_tag house.image_url(:thumb) %></td>
     <td><%= house.price %></td>
     <td><%= house.address %></td>
     <td><%= house.town %></td>
