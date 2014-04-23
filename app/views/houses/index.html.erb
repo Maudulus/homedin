@@ -9,8 +9,8 @@
     <% if user_signed_in? && (@houses.empty? == false)    %>
 <table>
   <tr>
-    <th>Picture</th>
-    <th>Price</th>
+    <th>Image</th>
+    <th>Zestimate®</th>
     <th>Address</th>
     <th>Town</th>
     <th>Description</th>
@@ -38,6 +38,7 @@
   </tr>
     <% end %>
 </table>
+<img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
 
 <br>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>

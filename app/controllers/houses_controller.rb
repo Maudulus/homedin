@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_filter :authenticate_user!,
-    :only => [:destroy, :create, :edit, :new]
+    :only => [:destroy, :create, :edit, :new, :search]
   def new
     @house = House.new
   end
@@ -9,6 +9,17 @@ class HousesController < ApplicationController
     if user_signed_in?
       @houses = current_user.houses
     else
+    end
+  end
+
+  def search
+    api_results = Zillow.new(params[:address], params[:citystatezip])
+    @house = current_user.houses.build(price: api_results.price, town: api_results.city, bedrooms: api_results.bedrooms, bathrooms: api_results.bathrooms, url: api_results.url, address: api_results.street_address, remote_image_url: api_results.image_url, description: api_results.description  )
+    if @house.save
+      redirect_to houses_path, notice: 'House Added'
+    else
+      flash.now[:error] = 'House Not Added'
+      render :new
     end
   end
 
