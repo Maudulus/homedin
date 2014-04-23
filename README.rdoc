@@ -1,55 +1,16 @@
-Testing:
+README - HomedIn
+
+HomedIn is an application that allows users to easily save houses that they are interested in renting or purchasing.
+
+This application incorporates a number of gems/apis, notably:
+ + Twilio (timed textmessage notifications)
+ + Sidekiq (background jobs)
+ + Zillow (for easy housing queries)
+ + Unicorn
+ + (other gems can be viewed in the Gemfile)
+
+Testing Notes:
 # redis is already installed
-you have to run the following:
+you have to run the following two lines in order to test text-messages locally:
 redis-server /usr/local/etc/redis.conf
-and
 bundle exec sidekiq
-
-
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-
-
-<!DOCTYPE html>
-<html>
-
-
-<head>
-  <title>HomedIn</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
