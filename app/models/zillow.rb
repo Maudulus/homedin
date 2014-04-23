@@ -2,6 +2,7 @@ class Zillow
   include HTTParty
   BASE_URI = 'http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id='
   DESCRIPTION_URI = 'http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id='
+
   attr_reader :price, :street_address, :zip, :city, :state, :bedrooms, :bathrooms, :url, :zpid, :address, :citystatezip, :description, :image_url
 
   def initialize(address, citystatezip)
@@ -21,8 +22,14 @@ class Zillow
     @zpid = @response["searchresults"]["response"]["results"]["result"]["zpid"]
 
     @description_image_response = description_image
-    @description = @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"]
-    @image_url = @description_image_response["updatedPropertyDetails"]["response"]["images"]["image"]["url"][0]
+    if !@description_image_response["updatedPropertyDetails"]["message"]["text"].include?("Error")
+      @description = @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"]
+      @image_url = @description_image_response["updatedPropertyDetails"]["response"]["images"]["image"]["url"][0]
+    else
+      @description = "SOmething"
+      @image_url = "http://upload.wikimedia.org/wikipedia/commons/2/22/Belton_House_2006_Giano.jpg"
+    end
+
   end
 
   private
@@ -37,7 +44,6 @@ class Zillow
     url_s = DESCRIPTION_URI + ENV['ZWSID'] + "&zpid=" + zpid
     url_s = URI::encode(url_s)
     HTTParty.get(url_s)
-
   end
 
 end
