@@ -37,9 +37,11 @@ gem 'simple_form'
 
 gem 'foundation-rails'
 
-#gem "rmagick"
+
 gem 'carrierwave'
-gem 'mini_magick'
+gem "rmagick", require: false
+gem 'fog'
+# gem 'mini_magick'
 
 gem 'omniauth-twitter'
 
@@ -55,6 +57,8 @@ gem 'whenever', :require => false
 gem 'slim'
 
 gem 'unicorn'
+
+
 
 group :test, :development do
   gem 'rspec-rails'

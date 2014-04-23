@@ -1,10 +1,7 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::RMagick
 
   # Choose what kind of storage to use for this uploader:
   # storage :fog
