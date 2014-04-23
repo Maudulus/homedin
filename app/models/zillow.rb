@@ -22,7 +22,6 @@ class Zillow
     @zpid = @response["searchresults"]["response"]["results"]["result"]["zpid"]
 
     @description_image_response = description_image
-    visit @description_image_response
     @description = @description_image_response["updatedPropertyDetails"]["response"]["homeDescription"]
     @image_url = @description_image_response["updatedPropertyDetails"]["response"]["images"]["image"]["url"][0]
   end
@@ -39,7 +38,6 @@ class Zillow
     url_s = DESCRIPTION_URI + ENV['ZWSID'] + "&zpid=" + zpid
     url_s = URI::encode(url_s)
     HTTParty.get(url_s)
-
   end
 
 end
