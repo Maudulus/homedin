@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :houses
   has_many :ratings
   has_many :textmessages
-  has_many :votes
 
   validates :username, presence: true
 
