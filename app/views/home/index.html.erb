@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <h2>Home</h2>
+
+<div class="scrollWrapper">
 <table>
-  <tr>
-    <th>Image</th>
+  <tr >
+    <th width="85" height="80">Image</th>
     <th>Zestimate®</th>
     <th>Address</th>
     <th>Town</th>
-    <th>Description</th>
+    <th height="10" >Description</th>
     <th>Bedrooms</th>
     <th>Bathrooms</th>
-    <th>URL</th>
+    <th width="5">URL</th>
 
   </tr>
     <% @houses.each do |house|%>
@@ -18,17 +20,21 @@
     <td><%= house.price %></td>
     <td><%= house.address %></td>
     <td><%= house.town %></td>
-    <td><%= house.description %></td>
+    <td><%= truncate(house.description, length: 60, omission: "...(continued)") %></td>
     <td><%= house.bedrooms %></td>
     <td><%= house.bathrooms %></td>
-    <td><a href=<%= house.url %>><%= house.url %> </a> </td>
+    <td ><a href=<%= house.url %>><%= truncate(house.url, length:20, omission: "...") %> </a> </td>
     <% if user_signed_in? && house.user_id == current_user.id %>
       <td><%= link_to 'SHOW', house_path(house) %></td>
     <% end %>
   </tr>
     <% end %>
 </table>
+</div>
   <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
+
+
+
 
 <br>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
@@ -58,6 +64,5 @@
 <div class="row">
   <h3 align="center" >Town to Price Comparison</h3>
   <%= bar_chart House.group(:town).average(:price) %>
-  <%= geo_chart House.group(:town).sum(:price) %>
 </div>
 <br>

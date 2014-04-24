@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :houses
   has_many :ratings
   has_many :textmessages
+  has_many :votes
 
   validates :username, presence: true
 
@@ -23,7 +24,6 @@ class User < ActiveRecord::Base
   #     end
   #   end
   # end
-
 
   # def self.new_with_session(params, session)
   #   if session["devise.user_attributes"]
