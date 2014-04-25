@@ -33,8 +33,7 @@ feature 'user adds a rating to a house', %q{
       click_on 'Create Rating'
       click_on 'SHOW'
       expect(Rating.count).to eq(count + 1)
-      save_and_open_page
-      within(:css, '#rating_commute_8').should be_checked
+      find_field('rating_commute_8').should be_checked
   end
 
 end

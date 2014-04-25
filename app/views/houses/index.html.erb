@@ -8,37 +8,56 @@
 
     <% if user_signed_in? && (@houses.empty? == false)    %>
 <div class="scrollWrapper_hp">
-<table>
-  <tr>
-    <th width="80" >Image</th>
-    <th>Zestimate®</th>
-    <th>Address</th>
-    <th>Town</th>
-    <th height="10">Description</th>
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th>URL</th>
+  <table id="keywords">
+    <thead>
+      <tr>
+        <th width="80" >
+          <span>Image</span>
+        </th>
+        <th>
+          <span>Zestimate®</span>
+        </th>
+        <th>
+          <span>Address</span>
+        </th>
+        <th>
+          <span>Town</span>
+        </th>
+        <th>
+          <span>Bedrooms</span>
+        </th>
+        <th>
+          <span>Bathrooms</span>
+        </th>
+        <th>
+          <span>URL</span>
+        </th>
+        <th></th>
+        <th></th>
+    </thead>
 
 
-  </tr>
-    <% @houses.each do |house|%>
-  <tr>
-    <td><%= image_tag house.image_url(:thumb) %></td>
-    <td><%= house.price %></td>
-    <td><%= house.address %></td>
-    <td><%= house.town %></td>
-    <td><%= truncate(house.description, length: 45, omission: "...(continued)") %></td>
-    <td><%= house.bedrooms %></td>
-    <td><%= house.bathrooms %></td>
-    <td><a href=<%= house.url %>><%= truncate(house.url, length:20, omission: "...") %> </a> </td>
-    <% if user_signed_in? && house.user_id == current_user.id %>
-      <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Edit', edit_house_path(house) %></td>
-      <td><%= link_to 'SHOW', house_path(house) %></td>
-    <% end %>
-  </tr>
-    <% end %>
-</table>
+      </tr>
+
+        <% @houses.each do |house|%>
+
+      <tr class='clickableRow' href='<%= house_path(house) %>'>
+        <td><%= image_tag house.image_url(:thumb) %></td>
+        <td><%= house.price %></td>
+        <td><%= house.address %></td>
+        <td><%= house.town %></td>
+        <td><%= house.bedrooms %></td>
+        <td><%= house.bathrooms %></td>
+
+        <td><a href=<%= house.url %>><%= truncate(house.url, length:20, omission: "...") %> </a> </td>
+        </a>
+        <% if user_signed_in? && house.user_id == current_user.id %>
+          <td><%= link_to 'Edit', edit_house_path(house) %></td>
+          <td><%= link_to 'Delete', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+        <% end %>
+  </table>
 </div>
 <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
 

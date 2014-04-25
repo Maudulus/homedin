@@ -1,70 +1,52 @@
 <!DOCTYPE html>
 <div id="canvas" class="lander">
-<h2>Home</h2>
-  <div class="ground lander"></div>
-  <div class="house-wall lander"></div>
-  <div class="house-door-frame lander">
-    <div class="house-door lander">
-      <div class="house-door-window-frame lander">
-        <div class="house-door-window lander"></div>
-        <div class="house-door-window lander"></div>
-        <div class="house-door-window lander"></div>
-        <div class="house-door-window lander"></div>
-      </div>
-      <div class="house-door-knob lander"></div>
-    </div>
-  </div>
-  <div class="house-window-frame lander">
-    <div class="house-window lander"></div>
-    <div class="house-window lander"></div>
-    <div class="house-window lander"></div>
-    <div class="house-window lander"></div>
-  </div>
-  <div class="house-roof lander"></div>
-  <div class="house-chimney-body lander"></div>
-  <div class="house-chimney-top lander"></div>
-  <div class="windmill-base lander"></div>
-  <div class="windmill-body lander"></div>
-  <div class="windmill-wing1 lander"></div>
-  <div class="windmill-wing2 lander"></div>
-</div>
-
+<h2>HomedIn</h2>
 
 <div class="scrollWrapper">
-<table>
-  <tr >
-    <th width="85" height="80">Image</th>
-    <th>Zestimate®</th>
-    <th>Address</th>
-    <th>Town</th>
-    <th height="10" >Description</th>
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th width="5">URL</th>
-
-  </tr>
+<table id="keywords">
+  <thead>
+    <tr >
+      <th width="85" height="80">
+        <span>Image</span>
+      </th>
+      <th>
+        <span>Zestimate®</span>
+      </th>
+      <th>
+        <span>Address</span>
+      </th>
+      <th>
+        <span>Town</span>
+      </th>
+      <th width="1%">
+        <span>Beds</span>
+      </th>
+      <th width="2%">
+        <span>Baths</span>
+      </th>
+      <th width="5">
+        <span>URL</span>
+      </th>
+    </tr>
+  </thead>
     <% @houses.each do |house|%>
-  <tr>
+  <% if user_signed_in? && house.user_id == current_user.id %>
+    <tr class='clickableRow' href='<%= house_path(house) %>'>
+  <% else %>
+    <tr>
+  <% end %>
     <td><%= image_tag house.image_url(:thumb) %></td>
     <td><%= house.price %></td>
     <td><%= house.address %></td>
     <td><%= house.town %></td>
-    <td><%= truncate(house.description, length: 60, omission: "...(continued)") %></td>
     <td><%= house.bedrooms %></td>
     <td><%= house.bathrooms %></td>
     <td ><a href=<%= house.url %>><%= truncate(house.url, length:20, omission: "...") %> </a> </td>
-    <% if user_signed_in? && house.user_id == current_user.id %>
-      <td><%= link_to 'SHOW', house_path(house) %></td>
-    <% end %>
   </tr>
     <% end %>
 </table>
 </div>
   <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
-
-
-
-
 <br>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <div class="row">

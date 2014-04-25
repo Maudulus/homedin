@@ -1,0 +1,40 @@
+div.scrollWrapper{
+  height:550px;
+  width:982px;
+  overflow:scroll;
+}
+div.scrollWrapper_hp{
+  height:550px;
+  width:1020px;
+  overflow:scroll;
+}
+#keywords thead {
+  cursor: pointer;
+  background: #9ce1b3;
+}
+
+#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+  background: #ffba72;
+}
+#keywords thead tr th.headerSortUp span {
+  background-image: url('http://i.imgur.com/SP99ZPJ.png') ;
+}
+#keywords thead tr th.headerSortDown span {
+  background-image: url('http://i.imgur.com/RkA9MBo.png') ;
+}
+
+#keywords thead tr th span {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+tr:hover {
+  background-color: #ffd9b2 !important;
+}
+td {
+  text-align: center;
+}
+thead {
+  text-align: center;
+}
