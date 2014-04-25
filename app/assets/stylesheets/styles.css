@@ -30,11 +30,15 @@ div.scrollWrapper_hp{
 }
 
 tr:hover {
-  background-color: #ffd9b2 !important;
+  background-color: #5093AA  !important;
 }
 td {
   text-align: center;
 }
 thead {
   text-align: center;
+}
+
+.signedoutrow:hover {
+  background-color: #ffd9b2 !important;
 }
