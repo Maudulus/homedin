@@ -24,3 +24,200 @@ div.scrollWrapper_hp{
   overflow:scroll;
 }
 
+
+body {
+  background: #333;
+  margin: 0;
+}
+#canvas {
+  z-index: -5;
+  background: #4FC1E9;
+  background-image: linear-gradient(bottom, #4FC1E9 5%, #2A69DC 100%);
+  background-image: -o-linear-gradient(bottom, #4FC1E9 5%, #2A69DC 100%);
+  background-image: -moz-linear-gradient(bottom, #4FC1E9 5%, #2A69DC 100%);
+  background-image: -webkit-linear-gradient(bottom, #4FC1E9 5%, #2A69DC 100%);
+  background-image: -ms-linear-gradient(bottom, #4FC1E9 5%, #2A69DC 100%);
+  width: 100%;
+  height: 450px;
+  margin: 50px auto;
+  position: relative;
+}
+.lander {
+  position: absolute;
+  display: block;
+}
+.ground {
+  z-index: -2;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 150px;
+  background-image: linear-gradient(bottom, #4C9122 5%, #A0D468 100%);
+  background-image: -o-linear-gradient(bottom, #4C9122 5%, #A0D468 100%);
+  background-image: -moz-linear-gradient(bottom, #4C9122 5%, #A0D468 100%);
+  background-image: -webkit-linear-gradient(bottom, #4C9122 5%, #A0D468 100%);
+  background-image: -ms-linear-gradient(bottom, #4C9122 5%, #A0D468 100%);
+}
+
+.house-wall {
+  width: 300px;
+  height: 150px;
+  background: #FFCE54;
+  left: 300px;
+  bottom: 100px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.house-door-frame {
+  width: 60px;
+  height: 108px;
+  left: 460px;
+  bottom: 99px;
+  background: #333;
+  border-radius: 2px;
+}
+.house-door {
+  position: relative;
+  width: 50px;
+  height: 105px;
+  margin: 3px auto;
+  background: #E9573F;
+  border-radius: 2px;
+}
+.house-door-window-frame {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: #333;
+  left: 10px;
+  top: 10px;
+  border-radius: 2px;
+}
+.house-door-window {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  background: #acf;
+  float: left;
+  margin: 2px 0 0 2px;
+  border-radius: 1px;
+}
+.house-door-knob {
+  width: 10px;
+  height: 10px;
+  background: #333;
+  left: 5px;
+  bottom: 44px;
+  border-radius: 5px;
+}
+.house-roof {
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  border-bottom: 100px solid #333;
+  left: 270px;
+  top: 100px;
+  border-radius: 30px;
+}
+.house-chimney-top {
+  width: 46px;
+  height: 10px;
+  background: #E9573F;
+  left: 355px;
+  top: 120px;
+  border-radius: 2px;
+}
+.house-chimney-body {
+  background: transparent;
+  left: 358px;
+  top: 130px;
+  border-bottom: 23px solid transparent;
+  border-left: 40px solid #FC6E51;
+  border-right: 0px solid transparent;
+  height: 20px;
+  width: 0;
+  border-bottom-left-radius: 3px;
+}
+.house-window-frame {
+  width: 44px;
+  height: 44px;
+  background: #333;
+  left: 356px;
+  top: 254px;
+  border-radius: 2px;
+}
+.house-window {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: #acf;
+  float: left;
+  margin: 4px 0 0 4px;
+  border-radius: 1px;
+}
+.windmill-base {
+  border-bottom: 10px solid #F5F7FA;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  height: 0;
+  width: 20px;
+  left: 200px;
+  bottom: 100px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.windmill-body {
+  z-index: -1;
+  width: 8px;
+  height: 266px;
+  background: #F5F7FA;
+  border-radius: 5px / 70px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  left: 211px;
+  bottom: 100px;
+}
+.windmill-wing1 {
+  width: 8px;
+  height: 120px;
+  background: #E6E9ED;
+  border-radius: 4px / 60px;
+  left: 211px;
+  top: 30px;
+  -webkit-transform:rotate(30deg);
+  -webkit-animation: rotate 5s infinite linear;
+}
+.windmill-wing2 {
+  width: 8px;
+  height: 120px;
+  background: #E6E9ED;
+  border-radius: 4px / 60px;
+  left: 211px;
+  top: 30px;
+  -webkit-transform:rotate(120deg);
+  -webkit-animation: rotate2 5s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(30deg);
+  }
+  to {
+    -webkit-transform: rotate(390deg);
+  }}
+@-webkit-keyframes rotate2 {
+  from {
+    -webkit-transform: rotate(120deg);
+  }
+  to {
+    -webkit-transform: rotate(480deg);
+  }}
+
+
+
+
+
+/*.box:hover {
+background: red;
+}*/

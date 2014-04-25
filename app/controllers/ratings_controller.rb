@@ -27,6 +27,6 @@ class RatingsController < ApplicationController
   private
 
   def rating_params
-    params.require(:rating).permit(:value).merge(user: current_user, house_id: params[:house_id])
+    params.require(:rating).permit(:cost, :location, :education, :parking, :condition, :spaciousness, :bedrooms, :bathrooms, :commute, :culture).merge(user: current_user, house_id: params[:house_id])
   end
 end
