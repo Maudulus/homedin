@@ -33,7 +33,7 @@
   <% if user_signed_in? && house.user_id == current_user.id %>
     <tr class='clickableRow' href='<%= house_path(house) %>'>
   <% else %>
-    <tr>
+    <tr class="signedoutrow">
   <% end %>
     <td><%= image_tag house.image_url(:thumb) %></td>
     <td><%= house.price %></td>
