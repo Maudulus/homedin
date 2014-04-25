@@ -1,4 +1,4 @@
-<h1>House Number <%= @house.id %> </h1>
+<h1><%= @house.address %> </h1>
 <br>
 
 <% flash.each do |name, msg| %>
@@ -42,11 +42,28 @@
 <br>
 <h3>Rate this House</h3>
 <%= simple_form_for [@house, @rating] do |f| %>
- <%= f.input :value, collection: 1..5 %>
- <%= f.button :submit  %>
+ <%= f.input :cost, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :location, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :education, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :parking, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :condition, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :spaciousness, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :bedrooms, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :bathrooms, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :commute, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <br>
+ <%= f.input :culture, collection: [1,2,3,4,5,6,7,8,9,10], as: :radio_buttons, boolean_style: :inline %>
+ <%= f.button :submit %>
 <% end %>
 <br>
-
 <div id="datetime_picker">
 <h3>Add a Show Time alert</h3>
 <%= simple_form_for [@house, @textmessage], method: :create do |f| %>
@@ -56,10 +73,3 @@
   <%= f.button :submit  %>
 <% end %>
 </div>
-
-
-
-
-
-
-

@@ -10,17 +10,7 @@
  *
  *= require_self
  *= require foundation_and_overrides
-
  *= require_tree .
- */
-div.scrollWrapper{
-  height:550px;
-  width:970px;
-  overflow:scroll;
-}
-div.scrollWrapper_hp{
-  height:550px;
-  width:1000px;
-  overflow:scroll;
-}
+ *= require styles
 
+ */

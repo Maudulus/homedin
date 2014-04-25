@@ -15,5 +15,16 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require jquery.tablesorter
 
 $(function(){ $(document).foundation(); });
+
+$(function(){
+  $('#keywords').tablesorter();
+});
+
+$(function() {
+      $(".clickableRow").click(function() {
+            window.document.location = $(this).attr("href");
+      });
+});
