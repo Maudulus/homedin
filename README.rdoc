@@ -1,5 +1,7 @@
 README - HomedIn
 
+homedin.heroku.com
+
 HomedIn is an application that allows users to easily save houses that they are interested in renting or purchasing.
 
 This application incorporates a number of gems/apis, notably:

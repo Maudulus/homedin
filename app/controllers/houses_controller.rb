@@ -27,19 +27,14 @@ class HousesController < ApplicationController
     end
   end
 
-  def foobar
-    @house = House.find(params[:id])
-
-    redirect_to house_path(@house)
-  end
-
   def edit
     @house = House.find(params[:id])
   end
 
   def show
     @house = House.find(params[:id])
-    @rating = Rating.find_by(house: @house, user: current_user) || Rating.new
+    @rating = Rating.find_by(house: @house, user: current_user) || Rating.new#(@house.id)
+    # @rating_count = @rating.rating_total(@house.id)
     @textmessage = Textmessage.find_by(house: @house, user: current_user) || Textmessage.new
   end
 
@@ -78,6 +73,6 @@ class HousesController < ApplicationController
 
    protected
   def house_params
-    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :cost, :location, :education, :parking, :condition, :spaciousness, :bedrooms, :bathrooms, :commute, :culture, :remote_image_url, :image, :textmessage,  )
+    params.require(:house).permit(:price, :town, :description, :bedrooms,:bathrooms, :url, :cost, :location, :education, :parking, :condition, :spaciousness, :bedrooms, :bathrooms, :commute, :culture, :remote_image_url, :image, :textmessage  )
   end
 end
