@@ -1,79 +1,45 @@
 <!DOCTYPE html>
 <div id="canvas" class="lander">
-<h2>HomedIn</h2>
+<h2 style="margin-bottom: -30px;">HomedIn</h2>
+  <h4 style="text-align: center;"> <a href="/users/sign_up">SIGN UP TO GET STARTED</a></h4>
 
-<div class="scrollWrapper">
-<table id="keywords">
-  <thead>
-    <tr >
-      <th width="85" height="80">
-        <span>Image</span>
-      </th>
-      <th>
-        <span>Zestimate®</span>
-      </th>
-      <th>
-        <span>Address</span>
-      </th>
-      <th>
-        <span>Town</span>
-      </th>
-      <th width="1%">
-        <span>Beds</span>
-      </th>
-      <th width="2%">
-        <span>Baths</span>
-      </th>
-      <th width="5">
-        <span>URL</span>
-      </th>
-    </tr>
-  </thead>
-    <% @houses.each do |house|%>
-  <% if user_signed_in? && house.user_id == current_user.id %>
-    <tr class='clickableRow' href='<%= house_path(house) %>'>
-  <% else %>
-    <tr class="signedoutrow">
-  <% end %>
-    <td><%= image_tag house.image_url(:thumb) %></td>
-    <td><%= house.price %></td>
-    <td><%= house.address %></td>
-    <td><%= house.town %></td>
-    <td><%= house.bedrooms %></td>
-    <td><%= house.bathrooms %></td>
-    <td ><a href=<%= house.url %>><%= truncate(house.url, length:20, omission: "...") %> </a> </td>
-  </tr>
-    <% end %>
-</table>
-</div>
-  <img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/zmm_logo_large.gif" width="180" height="20" alt="Zillow Real Estate Search" />
-<br>
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<div class="row">
-  <h3 align="center" >Bedroom(s) to Price Comparison</h3>
-  <div class="large-6 columns">
-    <%= pie_chart House.group(:bedrooms).average(:price) %>
-  </div>
-  <div class="large-6 columns">
-    <%= column_chart House.group(:bedrooms).average(:price) %>
-  </div>
-  </div>
-</div>
-<br>
+  <div style="width: 100%;">
+    <div style="float:left; width: 50%;">
+      <div style="text-align: center; border-radius:3px; border-color: #ffba72; border-style:solid;">
+        <h6 style="padding-top: 3px;"> EASILY ADD A HOUSE TO YOUR LIST </h6>
+        <h6 style="font-size: 11px;">HomedIn finds and saves all the house's information (bedrooms, bathrooms, description, etc.)</h6>
+        <hr>
+        <img src="/assets/Selection_013.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+      </div>
 
-<div class="row">
-  <h3 align="center" >Bathroom(s) to Price Comparison</h3>
-  <div class="large-6 columns">
-    <%= pie_chart House.group(:bathrooms).average(:price) %>
+      <br>
+
+      <div style="text-align: center; border-radius:3px; border-color: #ffba72; border-style:solid;">
+        <h6 style="padding-top: 3px;"> EASILY SEARCH AND SCROLL YOUR SAVED HOUSES </h6>
+        <hr>
+        <img src="/assets/Selection_002.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+      </div>
+    </div>
+
+    <div style="float:right;">
+      <div style="text-align: center; border-radius:3px; border-color: #ffba72; border-style:solid;">
+        <h6 style="padding-top: 3px;"> ADD A TEXT-MESSAGE ALERT WITH SHOWING TIME  </h6>
+        <hr>
+        <img src="/assets/Selection_006.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+      </div>
+
+      <br>
+
+      <div style="text-align: center; border-radius:3px; border-color: #ffba72; border-style:solid;">
+        <h6 style="padding-top: 3px;"> CHECK OUT STATISTICS ABOUT YOUR SAVED HOUSES  </h6>
+        <hr>
+        <img src="/assets/Selection_004.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+        <hr>
+        <img src="/assets/Selection_005.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+        <hr>
+        <img src="/assets/Selection_003.png" alt="some_text" width="400" height="400" id="my_pic" style="">
+        <hr>
+      </div>
+    </div>
   </div>
-  <div class="large-6 columns">
-    <%= column_chart House.group(:bathrooms).average(:price) %>
-  </div>
-</div>
-<br>
-<br>
-<div class="row">
-  <h3 align="center" >Town to Price Comparison</h3>
-  <%= bar_chart House.group(:town).average(:price) %>
-</div>
-<br>
+
