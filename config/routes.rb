@@ -12,6 +12,10 @@ HomedIn::Application.routes.draw do
 
   post '/search' => 'houses#search'
 
+  controller :static do
+    get '/about' => :about
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
